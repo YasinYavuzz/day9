@@ -32,6 +32,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  List<String> _songArtist = ["Juice Wrld, Drake, Kendrick","Joji, The KID LAROI","Lamar and more..."];
+  List<String> _songType = ["Hip Hop Mix","Moody Mix","Moody Mix"]; 
+  List<String> _albumPhoto = ["assets/song1.png","assets/song2.png","assets/song2.png"];
+  List<String> _artists = ["assets/artist1.png","assets/artist.png","assets/artist.png"];
 
   void _incrementCounter() {
     setState(() {
@@ -164,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 500,
                   height: 200,
                   child: ListView.builder(
-                    itemCount: 3,
+                    itemCount: _albumPhoto.length,
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
@@ -185,13 +189,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             Container(
                               alignment: Alignment.topCenter,
-                              child: Image.asset('assets/artist1.png'),
+                              child: Image.asset(
+                                _albumPhoto[index]
+                              ),
                             ),
                             Container(
                               alignment: Alignment.centerLeft,
                               margin: EdgeInsets.only(top: 7, left: 16),
                               child: Text(
-                                'Hip Hop Mix',
+                                '${_songType[index]}',
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
@@ -201,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               alignment: Alignment.centerLeft,
                               margin: EdgeInsets.only(top: 7, left: 16),
                               child: Text(
-                                'Juice Wrld, Drake, Kendrick, lamar and more...',
+                                '${_songArtist[index]}',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 11,
@@ -234,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 500,
                   height: 200,
                   child: ListView.builder(
-                    itemCount: 3,
+                    itemCount: _artists.length,
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
@@ -256,7 +262,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Container(
                               margin: EdgeInsets.only(top: 20),
                               alignment: Alignment.center,
-                              child: Image.asset('assets/sugessted1.png'),
+                              child: Image.asset('${_artists[index]}'),
                             ),
                             
                           ],
